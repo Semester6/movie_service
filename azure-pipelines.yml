@@ -4,13 +4,13 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
-  task: JavaToolInstaller@0
+
+steps:
+- task: JavaToolInstaller@0
   inputs:
     versionSpec: '17'
     jdkArchitectureOption: 'x64'
     jdkSourceOption: 'PreInstalled'
-
-steps:
 # Maven
 - task: SonarCloudPrepare@1
   inputs:
