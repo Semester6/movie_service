@@ -3,7 +3,11 @@ trigger:
 - master
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage:- task: JavaToolInstaller@0
+  inputs:
+    versionSpec: '8'
+    jdkArchitectureOption: 'x64'
+    jdkSourceOption: 'PreInstalled'
 
 steps:
 # Maven
