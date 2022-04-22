@@ -53,7 +53,7 @@ steps:
     kubernetesServiceEndpoint: 'kubernetes-home'
     namespace: 'watcherz'
     command: 'apply'
-    arguments: '-f kubernetes/*'
+    arguments: '-k kubernetes/'
     secretType: 'dockerRegistry'
     containerRegistryType: 'Azure Container Registry'
     outputFormat: 'none'
