@@ -53,7 +53,7 @@ steps:
     kubernetesServiceEndpoint: 'kubernetes-home'
     namespace: 'watcherz'
     command: 'apply'
-    arguments: '-f kubernetes/svg-movieservice.yml'
+    arguments: '-f kubernetes/svc-movieservice.yml'
     secretType: 'dockerRegistry'
     containerRegistryType: 'Azure Container Registry'
     outputFormat: 'none'
