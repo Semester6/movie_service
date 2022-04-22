@@ -38,6 +38,7 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'Docker Registry'
+    repository: "watcherz"
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
     tags: |
