@@ -35,13 +35,35 @@ steps:
 - task: SonarCloudPublish@1
   inputs:
     pollingTimeoutSec: '300'
+# - task: Docker@2
+#   inputs:
+#     containerRegistry: 'Docker Registry'
+#     repository: "watcherz"
+#     command: 'buildAndPush'
+#     Dockerfile: '**/Dockerfile'
+#     tags: |
+#       $(Build.BuildId)
+#       latest
+- task: CmdLine@2
+  inputs:
+    script: 'ls'
 - task: Kubernetes@1
   inputs:
     connectionType: 'Kubernetes Service Connection'
     kubernetesServiceEndpoint: 'kubernetes-home'
     namespace: 'watcherz'
-    command: 'get'
-    arguments: 'pods'
+    command: 'apply'
+    arguments: '-f kubernetes/svc-movieservice.yml'
+    secretType: 'dockerRegistry'
+    containerRegistryType: 'Azure Container Registry'
+    outputFormat: 'none'
+- task: Kubernetes@1
+  inputs:
+    connectionType: 'Kubernetes Service Connection'
+    kubernetesServiceEndpoint: 'kubernetes-home'
+    namespace: 'watcherz'
+    command: 'apply'
+    arguments: '-f kubernetes/dpm-movieservice.yml'
     secretType: 'dockerRegistry'
     containerRegistryType: 'Azure Container Registry'
     outputFormat: 'none'
