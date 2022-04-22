@@ -3,9 +3,10 @@ trigger:
 - master
 
 pool:
-  vmImage:- task: JavaToolInstaller@0
+  vmImage: 'ubuntu-latest'
+  task: JavaToolInstaller@0
   inputs:
-    versionSpec: '8'
+    versionSpec: '17'
     jdkArchitectureOption: 'x64'
     jdkSourceOption: 'PreInstalled'
 
