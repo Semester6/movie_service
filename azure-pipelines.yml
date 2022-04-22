@@ -35,6 +35,14 @@ steps:
 - task: SonarCloudPublish@1
   inputs:
     pollingTimeoutSec: '300'
+- task: Docker@2
+  inputs:
+    containerRegistry: 'Docker Registry'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+    tags: |
+      $(Build.BuildId)
+      latest
 - task: Kubernetes@1
   inputs:
     connectionType: 'Kubernetes Service Connection'
