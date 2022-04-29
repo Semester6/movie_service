@@ -26,6 +26,6 @@ spec:
             - name: eureka.instance.prefer-ip-address
               value: "true"
             - name: server.port
-              value: 9090
+              value: "9090"
           ports:
             - containerPort: 8082
