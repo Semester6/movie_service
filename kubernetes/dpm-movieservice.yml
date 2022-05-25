@@ -18,7 +18,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: movieservice
-          image: 82.73.212.90/movieservice:latest
+          image:  registry.vimuens.nl/movieservice:latest
           imagePullPolicy: Always
           env:
             - name: eureka.client.serviceUrl.defaultZone
